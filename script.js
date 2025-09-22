@@ -17,8 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
             loadHome(); // Load home content by default
         })
         .catch(error => {
-            console.error("Error loading data.json:", error);
-            contentDiv.innerHTML = `<p style="color: red;">Error: Could not load website data. Please check the developer console for more information.</p>`;
+            console.error("Error loading or parsing data.json:", error);
+            contentDiv.innerHTML = `<p style="color: red; font-weight: bold;">Error: Could not load website data. The 'data.json' file may be missing or contain a syntax error. Please check the developer console for details.</p>`;
         });
 
     // --- Navigation click handlers ---
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Content Loading Functions ---
 
     function loadHome() {
-        if (!data.home) return;
+        if (!data.home) return; // Guard Clause
         contentDiv.innerHTML = `
             <div class="home-section">
                 <img src="${data.home.logo}" alt="EMES Lab Logo">
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function loadPeople() {
-        if (!data.people) return;
+        if (!data.people) return; // Guard Clause
         let html = '<h2>People</h2>';
         data.people.forEach(person => {
             html += `
@@ -70,19 +70,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function loadPublications() {
-        if (!data.publications) return;
+        if (!data.publications) return; // Guard Clause
         let html = '<h2>Publications</h2>';
         html += '<ol class="publications-list" reversed>';
-        // The most recent publication is first in the JSON, but will get the highest number.
         data.publications.forEach(pub => {
             let citation = pub.citation
-                .replace('†', '<sup>†</sup>')
-                .replace('‡', '<sup>‡</sup>');
+                .replace(/†/g, '<sup>†</sup>')
+                .replace(/‡/g, '<sup>‡</sup>');
             html += `<li>${citation}</li>`;
         });
         html += '</ol>';
         contentDiv.innerHTML = html;
-        // Set the starting number of the list to be the total count
         const ol = contentDiv.querySelector('.publications-list');
         if (ol) {
             ol.setAttribute('start', data.publications.length);
@@ -90,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function loadCommunications() {
-        if (!data.communications) return;
+        if (!data.communications) return; // Guard Clause
         let html = '<h2>Communications</h2>';
 
         const categories = {
@@ -106,8 +104,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 html += '<ul class="communications-list">';
                 data.communications[key].forEach(comm => {
                      let citation = comm
-                        .replace('†', '<sup>†</sup>')
-                        .replace('‡', '<sup>‡</sup>');
+                        .replace(/†/g, '<sup>†</sup>')
+                        .replace(/‡/g, '<sup>‡</sup>');
                     html += `<li>${citation}</li>`;
                 });
                 html += '</ul>';
@@ -117,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function loadResearch() {
-        if (!data.research) return;
+        if (!data.research) return; // Guard Clause
         let html = '<h2>Research</h2>';
         data.research.forEach((item, index) => {
             html += `
@@ -134,11 +132,11 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         });
         contentDiv.innerHTML = html;
-        addAccordionListeners('.research-item-header');
+        addAccordionListeners('.research-item-header, .teaching-item-header');
     }
 
     function loadTeaching() {
-        if (!data.teaching) return;
+        if (!data.teaching) return; // Guard Clause
         let html = '<h2>Teaching</h2>';
         data.teaching.forEach((item, index) => {
             html += `
@@ -155,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         });
         contentDiv.innerHTML = html;
-        addAccordionListeners('.teaching-item-header');
+        addAccordionListeners('.research-item-header, .teaching-item-header');
     }
 
     function addAccordionListeners(selector) {
@@ -168,4 +166,4 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
-});
+});```
