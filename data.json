@@ -1,35 +1,37 @@
 ```json
 {
   "home": {
-    "logo": "path/to/your/logo.png",
+    "logo": "Logo_V1.png",
     "description": "We focus on understanding the fundamental mechanics and hydraulic transport properties of the subsurface for risk mitigation and the safe development of geo-energies (Geothermal, CO2 sequestration, hydrogen storage). <br><br> We combine advanced experimental methods, natural observations (seismic, geodetic, geophysical), and analytical/numerical models to understand various hydro-mechanical couplings in faults and reservoirs."
   },
   "people": [
     {
-      "name": "Dr. Your Name",
-      "title": "Principal Investigator",
-      "image": "path/to/your/photo.jpg",
+      "name": "Mateo Acosta",
+      "title": "Lab head",
+      "image": "1W2A5736.JPG",
       "cv": [
-        "PhD in Geophysics, University of Example, 2015",
-        "Postdoc at Another University, 2015-2018"
+        "Assistant professor of geomechanics @ VT-Geos (2025 - )",
+        "Research scientist @ Caltech (2021-2024)",
+        "D.Sc. Mechanics-Geophysics @ Swiss Institute of Technology Lausanne (2016 - 2020)",
+        "M.Sc Engineering @ Grenoble Institute of Technology (2012 - 2015)"
       ],
-      "research": "Dr. Your Name's research focuses on..."
+      "research": "My research focuses on understanding the fundamental mechanics and hydraulic transport properties of the subsurface for risk mitigation and the safe development of geo-energies with the potential to decarbonize our economy.<br>I use a combination of advanced experimental techniques and natural observations (seismic, geodetic and geophysical) which are complemented with analytical and numerical models to understand various hydro-mechanical couplings in deep faults and reservoirs.<br>A particular focus is given to induced seismicity in the context of geothermal reservoirs, CO2 sequestration, hhydrogen storage and alternative energy sources for clean and sustainable energy production."
     },
     {
-      "name": "Jane Doe",
+      "name": "Rahi Abrar",
       "title": "PhD Student",
-      "image": "path/to/jane/photo.jpg",
+      "image": "placeholder.jpg",
       "cv": [
-        "M.S. in Earth Sciences, Example State University, 2020",
-        "B.S. in Geology, University of Excellence, 2018"
+        "To be filled",
+        "To be filled"
       ],
-      "research": "Jane's research investigates..."
+      "research": "Rahi's research investigates..."
     }
   ],
   "publications": [
     {
       "citation": "Doe, J.†, & Your Name, Y. (2024). A very important paper. Journal of Geophysical Research: Solid Earth, 129(1), e2023JB027000.",
-      "isStudent": true,
+      "isStudent": false,
       "isPostdoc": false
     },
     {
@@ -60,24 +62,24 @@
   "research": [
     {
       "title": "Geothermal Energy",
-      "image": "path/to/geothermal/image.jpg",
+      "image": "placeholder.jpg",
       "description": "Our research in geothermal energy focuses on..."
     },
     {
       "title": "CO2 Sequestration",
-      "image": "path/to/co2/image.jpg",
+      "image": "placeholder.jpg",
       "description": "We investigate the long-term security of CO2 storage by..."
     }
   ],
   "teaching": [
     {
       "title": "GEOL 101: Introduction to Earth Science",
-      "image": "path/to/geol101/image.jpg",
+      "image": "placeholder.jpg",
       "description": "This course provides an overview of..."
     },
     {
         "title": "GEOPH 550: Advanced Seismology",
-        "image": "path/to/geoph550/image.jpg",
+        "image": "placeholder.jpg",
         "description": "A graduate-level course on..."
     }
   ]
