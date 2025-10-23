@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMES Lab - Research</title>
+    <style>
+        /* --- General Styles --- */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 0;
+        }
+        .logo img {
+            max-height: 30px;
+        }
+        nav a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 4px;
+        }
+        nav a:hover {
+            color: #000;
+        }
+        nav a.active {
+            background-color: #333;
+            color: #fff;
+        }
+        
+        /* --- Research Page Styles --- */
+        .research-header-image {
+            width: 100%;
+            margin-bottom: 40px;
+        }
+        .research-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        .accordion-title {
+            font-weight: bold;
+            cursor: pointer;
+            padding: 15px 0;
+            border-bottom: 1px solid #ccc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .accordion-title::after {
+            content: '▼';
+            font-size: 0.7em;
+        }
+        .accordion-title.active::after {
+            content: '▲';
+        }
+        .accordion-content {
+            display: none; /* Hidden by default */
+            padding: 20px 0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <a href="index.html"><img src="images/logo.png" alt="EMES Lab Logo"></a>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="people.html">People</a>
+                <a href="publications.html">Publications</a>
+                <a href="research.html" class="active">Research</a>
+                <a href="communications.html">Communications</a>
+            </nav>
+        </header>
+
+        <main>
+            <img src="images/research_diagram.png" alt="Research Diagram" class="research-header-image">
+            <img src="images/research_scale.png" alt="Research Scale Diagram" class="research-header-image">
+            
+            <div class="research-grid">
+                <!-- Column 1 -->
+                <div>
+                    <!-- Accordion Item 1 -->
+                    <div class="accordion-item">
+                        <div class="accordion-title">FLUID/ROCK INTERACTION DURING THE EARTHQUAKE CYCLE</div>
+                        <div class="accordion-content">
+                            <p>Here is the detailed text about this research topic. You can include more paragraphs and even images if you want.</p>
+                        </div>
+                    </div>
+                    <!-- Accordion Item 2 -->
+                    <div class="accordion-item">
+                        <div class="accordion-title">HYDRAULIC TRANSPORT IN DEEP RESERVOIRS</div>
+                        <div class="accordion-content">
+                            <p>Detailed description of hydraulic transport research.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Column 2 -->
+                <div>
+                     <!-- Accordion Item 3 -->
+                    <div class="accordion-item">
+                        <div class="accordion-title">FORECASTING INDUCED SEISMICITY IN DEEP RESERVOIRS</div>
+                        <div class="accordion-content">
+                            <p>Detailed description of induced seismicity research.</p>
+                        </div>
+                    </div>
+                    <!-- Accordion Item 4 -->
+                    <div class="accordion-item">
+                        <div class="accordion-title">HIGH-TEMPERATURE/PRESSURE ROCK DEFORMATION AND PHYSICAL PROPERTIES</div>
+                        <div class="accordion-content">
+                            <p>Detailed description of rock deformation research.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Embedded Javascript for Accordion -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const accordionTitles = document.querySelectorAll('.accordion-title');
+
+            accordionTitles.forEach(title => {
+                title.addEventListener('click', () => {
+                    const content = title.nextElementSibling;
+                    
+                    title.classList.toggle('active');
+
+                    if (content.style.display === 'block') {
+                        content.style.display = 'none';
+                    } else {
+                        content.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
