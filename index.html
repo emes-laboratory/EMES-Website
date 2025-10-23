@@ -3,161 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Carme&display=swap" rel="stylesheet">
+    <title>EMES Lab - Home</title>
     <style>
+        /* --- General Styles --- */
         body {
-            font-family: 'Carme', sans-serif;
-            background-color: #AFDDE5;
-            color: #003135;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             margin: 0;
-            padding: 0;
-        }
-
-        header {
-            background-color: #003135;
-            color: #AFDDE5;
-            padding: 1rem 0;
-            text-align: center;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-        }
-
-        nav ul li {
-            margin: 0 1rem;
-        }
-
-        nav ul li a {
-            color: #AFDDE5;
-            text-decoration: none;
-            font-size: 1.2rem;
-            cursor: pointer;
-        }
-
-        nav ul li a:hover, .active {
-            color: #0FA4AF;
-        }
-
-        main {
-            padding: 2rem;
-        }
-
-        #content {
-            max-width: 960px;
-            margin: 0 auto;
-        }
-
-        /* Home Section */
-        .home-section {
-            text-align: center;
-        }
-
-        .home-section img {
-            max-width: 300px;
-            margin-bottom: 2rem;
-        }
-
-        /* People Section */
-        .person {
-            display: flex;
-            margin-bottom: 2rem;
-            background-color: #FFFFFF;
-            padding: 1.5rem;
-            border-left: 5px solid #024950;
-        }
-
-        .person img {
-            max-width: 150px;
-            height: 150px;
-            margin-right: 1.5rem;
-            object-fit: cover;
-        }
-
-        .person-info h3 {
-            margin-top: 0;
-            color: #003135;
-        }
-
-        .person-info ul {
-            padding-left: 20px;
-        }
-
-        /* Publications & Communications Section */
-        .publications-list, .communications-list {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .publications-list li, .communications-list li {
-            margin-bottom: 1rem;
+            background-color: #f9f9f9;
+            color: #333;
+            font-size: 16px;
             line-height: 1.6;
         }
-
-        .communications-category {
-            margin-top: 2rem;
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
-        /* Research & Teaching Section */
-        .research-item, .teaching-item {
-            background-color: #FFFFFF;
-            margin-bottom: 1rem;
-        }
-
-        .research-item-header, .teaching-item-header {
-            padding: 1rem;
-            cursor: pointer;
+        /* --- Header & Navigation --- */
+        header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #024950;
-            color: #AFDDE5;
+            padding: 30px 0;
+        }
+        .logo img {
+            max-height: 30px;
+        }
+        nav a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 4px;
+        }
+        nav a:hover {
+            color: #000;
+        }
+        nav a.active {
+            background-color: #333;
+            color: #fff;
         }
 
-        .research-item-header h3, .teaching-item-header h3 {
-            margin: 0;
+        /* --- Main Content --- */
+        main {
+            padding: 40px 0;
         }
-
-        .research-item-content, .teaching-item-content {
-            display: none;
-            padding: 1.5rem;
-            border-top: 1px solid #AFDDE5;
+        .home-hero {
+            text-align: center;
+            margin-bottom: 60px;
         }
-
-        .research-item-content img {
-            max-width: 100%;
-            margin-bottom: 1rem;
+        .home-hero img {
+            max-width: 700px;
+            margin: 20px 0;
+        }
+        .lab-description {
+            text-align: center;
+            font-size: 1.1em;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .lab-description p {
+            margin-bottom: 2em;
         }
     </style>
 </head>
 <body>
 
-    <header>
-<!--         <h1>EMES Lab: Earth Mechanics and Physics for Energy Sustainability</h1> -->
-        <nav>
-            <ul>
-                <li><a id="home-link" class="nav-link active">Home</a></li>
-                <li><a id="people-link" class="nav-link">People</a></li>
-                <li><a id="publications-link" class="nav-link">Publications</a></li>
-                <li><a id="research-link" class="nav-link">Research</a></li>
-                <li><a id="communications-link" class="nav-link">Communications</a></li>
-                <li><a id="teaching-link" class="nav-link">Teaching</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <a href="index.html"><img src="images/logo.png" alt="EMES Lab Logo"></a>
+            </div>
+            <nav>
+                <a href="index.html" class="active">Home</a>
+                <a href="people.html">People</a>
+                <a href="publications.html">Publications</a>
+                <a href="research.html">Research</a>
+                <a href="communications.html">Communications</a>
+            </nav>
+        </header>
 
-    <main>
-        <div id="content">
-            <!-- Content will be loaded here by JavaScript -->
-        </div>
-    </main>
+        <main>
+            <div class="home-hero">
+                <!-- Replace with the path to your large central logo -->
+                <img src="images/emes_lab_main_logo.png" alt="EMES Lab - Earth Mechanics and physics for Energy Sustainability">
+            </div>
 
-    <script src="script.js"></script>
+            <div class="lab-description">
+                <p>
+                    We focus on understanding the fundamental mechanics and hydraulic transport properties of the
+                    subsurface for risk mitigation and the safe development of geo-energies
+                    (Geothermal, CO2 sequestration, hydrogen storage).
+                </p>
+                <p>
+                    We combine advanced experimental methods, natural observations (seismic, geodetic, geophysical),
+                    and analytical/numerical models to understand various hydro-mechanical couplings in faults and
+                    reservoirs.
+                </p>
+            </div>
+        </main>
+    </div>
+
 </body>
-</html>```
+</html>
