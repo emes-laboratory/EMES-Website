@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMES Lab - Publications</title>
+    <style>
+        /* --- General Styles --- */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 0;
+        }
+        .logo img {
+            max-height: 30px;
+        }
+        nav a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 4px;
+        }
+        nav a:hover {
+            color: #000;
+        }
+        nav a.active {
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* --- Publications Page Styles --- */
+        .page-title {
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+        .denotation-note {
+            margin-bottom: 40px;
+            color: #666;
+        }
+        .publication-list {
+            list-style: none;
+            counter-reset: publication-counter;
+        }
+        .publication-list li {
+            counter-increment: publication-counter;
+            margin-bottom: 25px;
+            padding-left: 40px;
+            position: relative;
+        }
+        .publication-list li::before {
+            content: counter(publication-counter) ".";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        .publication-list a {
+            color: #555;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .publication-list a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <a href="index.html"><img src="images/logo.png" alt="EMES Lab Logo"></a>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="people.html">People</a>
+                <a href="publications.html" class="active">Publications</a>
+                <a href="research.html">Research</a>
+                <a href="communications.html">Communications</a>
+            </nav>
+        </header>
+
+        <main>
+            <h2 class="page-title">Peer-Reviewed Publications</h2>
+
+            <p class="denotation-note">
+                † denotes supervised student, †† denotes supervised postdoc.
+            </p>
+
+            <!-- To add a new publication, add a new <li> item at the TOP of the list. The numbering is automatic. -->
+            <ol class="publication-list">
+                <li>
+                    <b>Tinti, D., Gutierrez-Oribio, I., Stefanou, M., Acosta, M., J.P. Avouac.</b><br>
+                    Single-well based control and optimization of hydraulic stimulation and induced seismicity: application to the Stanišov geothermal project.<br>
+                    <i>Geothermics.</i>
+                </li>
+                 <li>
+                    <b>FlowQuake, an integrated multiphase flow, geomechanical and seismicity model for efficient forecasting of injection and extraction induced earthquakes.</b><br>
+                    <i>International Journal of Greenhouse Gas Control</i>
+                </li>
+                <!-- Add more publications here as list items -->
+            </ol>
+            
+            <h2 class="page-title" style="margin-top: 60px;">Peer-Reviewed Conference Proceedings and Published Reports</h2>
+            
+            <ol class="publication-list">
+                <li>
+                    <b>Flattering, T.F. Wong, A. Moscoso, P.Didier, S. Caire, M.Acosta and J-P.Avouac. (2024)</b><br>
+                    Discussion of the application of rate dependent compaction models to the Groningen gas field<br>
+                    <i>Nederlandse Aardolie Maatschappij Reports</i> - <a href="#">Link</a>
+                </li>
+                <!-- Add more here -->
+            </ol>
+
+        </main>
+    </div>
+
+</body>
+</html>
