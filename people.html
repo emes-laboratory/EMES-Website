@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMES Lab - People</title>
+    <style>
+        /* --- General Styles --- */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 0;
+        }
+        .logo img {
+            max-height: 30px;
+        }
+        nav a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 4px;
+        }
+        nav a:hover {
+            color: #000;
+        }
+        nav a.active {
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* --- People Page Styles --- */
+        .person-entry {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #ddd;
+        }
+        .person-entry img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            margin-right: 40px;
+        }
+        .person-details h2 {
+            margin-top: 0;
+            margin-bottom: 5px;
+            font-size: 1.8em;
+        }
+        .person-details h3 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: normal;
+            font-size: 1.2em;
+            color: #666;
+        }
+        .person-details ul {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+        .person-details li {
+            margin-bottom: 8px;
+        }
+        .person-simple {
+            padding: 20px 0;
+            border-bottom: 1px solid #ddd;
+            font-size: 1.5em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <a href="index.html"><img src="images/logo.png" alt="EMES Lab Logo"></a>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="people.html" class="active">People</a>
+                <a href="publications.html">Publications</a>
+                <a href="research.html">Research</a>
+                <a href="communications.html">Communications</a>
+            </nav>
+        </header>
+
+        <main>
+            <!-- To add a new detailed member, copy this entire "person-entry" div -->
+            <div class="person-entry">
+                <img src="images/mateo_acosta.jpg" alt="Mateo Acosta">
+                <div class="person-details">
+                    <h2>Mateo Acosta</h2>
+                    <h3>Lab head</h3>
+                    <ul>
+                        <li>Assistant professor of geomechanics @ VT-Geos (2025 - onwards)</li>
+                        <li>Research scientist @ Caltech (2021-2024)</li>
+                        <li>D.Sc. Mechanics-Geophysics @ EPFL (2016 - 2020)</li>
+                        <li>M.Sc Engineering @ Grenoble INP (2012 - 2015)</li>
+                    </ul>
+                    <a href="#">CV</a>
+                </div>
+            </div>
+
+            <!-- To add a new simple member, copy this entire "person-simple" div -->
+            <div class="person-simple">
+                Rahi Abrar - Grad student
+            </div>
+            <div class="person-simple">
+                Lily Maddox - Grad student
+            </div>
+            <div class="person-simple">
+                Seamus Chappell - Undergrad student
+            </div>
+            
+        </main>
+    </div>
+
+</body>
+</html>
