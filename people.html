@@ -15,7 +15,7 @@
             line-height: 1.6;
         }
         .container {
-            max-width: 980px;
+            max-width: 1100px; /* Increased width to accommodate grid */
             margin: 0 auto;
             padding: 20px;
         }
@@ -47,43 +47,102 @@
         }
 
         /* --- People Page Styles --- */
-        .person-entry {
+        .section-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #555;
+            margin-top: 60px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* PI Section */
+        .pi-entry {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 40px;
             padding-bottom: 40px;
             border-bottom: 1px solid #ddd;
         }
-        .person-entry img {
-            width: 180px;
-            height: 180px;
-            object-fit: cover;
+        .pi-entry img {
+            width: 220px;
+            height: auto;
             margin-right: 40px;
+            border-radius: 4px;
         }
-        .person-details h2 {
+        .pi-details h2 {
             margin-top: 0;
             margin-bottom: 5px;
-            font-size: 1.8em;
+            font-size: 2em;
         }
-        .person-details h3 {
+        .pi-details h3 {
             margin-top: 0;
             margin-bottom: 20px;
             font-weight: normal;
             font-size: 1.2em;
             color: #666;
         }
-        .person-details ul {
+        .pi-details ul {
             padding-left: 20px;
             margin-bottom: 20px;
         }
-        .person-details li {
+        .pi-details li {
             margin-bottom: 8px;
         }
-        .person-simple {
-            padding: 20px 0;
-            border-bottom: 1px solid #ddd;
-            font-size: 1.5em;
-            color: #555;
+        
+        /* Member Grids */
+        .member-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two columns */
+            gap: 40px; /* Space between columns and rows */
+        }
+        .undergrad-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Three columns for undergrads */
+            gap: 30px;
+        }
+
+        /* Member Card (Postdocs & Grads) */
+        .member-card {
+            display: flex;
+            align-items: flex-start;
+        }
+        .member-card img {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 50%; /* Makes the image circular */
+            margin-right: 25px;
+        }
+        .member-details h2 {
+            margin-top: 0;
+            margin-bottom: 5px;
+            font-size: 1.6em;
+        }
+        .member-details h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: normal;
+            font-size: 1.1em;
+            color: #666;
+        }
+        .member-details ul {
+            padding-left: 20px;
+            margin: 0;
+            font-size: 0.95em;
+        }
+        
+        /* Undergrad Card (Simple Text) */
+        .undergrad-card {
+            padding: 10px;
+        }
+        .undergrad-card h3 {
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+        .undergrad-card ul {
+            padding-left: 20px;
+            margin: 0;
         }
     </style>
 </head>
@@ -104,10 +163,10 @@
         </header>
 
         <main>
-            <!-- To add a new detailed member, copy this entire "person-entry" div -->
-            <div class="person-entry">
+            <!-- PI Section -->
+            <div class="pi-entry">
                 <img src="images/mateo_acosta.jpg" alt="Mateo Acosta">
-                <div class="person-details">
+                <div class="pi-details">
                     <h2>Mateo Acosta</h2>
                     <h3>Lab head</h3>
                     <ul>
@@ -120,51 +179,93 @@
                 </div>
             </div>
 
-            <!-- To add a new simple member, copy this entire "person-simple" div -->
-            <div class="person-entry">
-                <img src="images/research_diagram.png" alt="Rahi Abrar">
-                <div class="person-details">
-                    <h2>Rahi Abrar</h2>
-                    <h3>Grad student</h3>
-                <ul>
-                    <li>PhD student @ EMES (2025 - 2029) </li>
-                    <li>Undergraduate @ (2021 - 2025)</li>
-                </ul>
-            </div>
+            <!-- Current Postdocs & Graduate Students Section -->
+            <h2 class="section-title">Current Postdocs & Graduate Students</h2>
+            <div class="member-grid">
                 
-            <div class="person-entry">
-                <img src="images/research_diagram.png" alt="Lily Maddox">
-                <div class="person-details">
-                    <h2>Lily Maddox</h2>
-                    <h3>Grad student</h3>
-                <ul>
-                    <li>MSc student @ EMES (2025 - 2027) </li>
-                    <li>Undergraduate @ University of Utah (2021 - 2025)</li>
-                </ul>
+                <!-- To add a new student, copy this entire "member-card" div -->
+                <div class="member-card">
+                    <img src="images/placeholder_circle.png" alt="Rahi Abrar">
+                    <div class="member-details">
+                        <h2>Rahi Abrar</h2>
+                        <h3>Grad student</h3>
+                        <ul>
+                            <li>PhD student @ EMES (2025 - 2029)</li>
+                            <li>Undergraduate @ (2021 - 2025)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Student 2 -->
+                <div class="member-card">
+                    <img src="images/placeholder_circle.png" alt="Lily Maddox">
+                    <div class="member-details">
+                        <h2>Lily Maddox</h2>
+                        <h3>Grad student</h3>
+                        <ul>
+                            <li>MSc student @ EMES (2025 - 2027)</li>
+                            <li>Undergraduate @ University of Utah (2021 - 2025)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Add student 3 and 4 here to continue the grid -->
+
+            </div>
+
+            <!-- Current Undergraduate Students Section -->
+            <h2 class="section-title">Current Undergraduate Students</h2>
+            <div class="undergrad-grid">
+                
+                <!-- To add a new undergrad, copy this entire "undergrad-card" div -->
+                <div class="undergrad-card">
+                    <h3>Seamus Chappell</h3>
+                    <ul>
+                        <li>Undergraduate research (2025)</li>
+                        <li>Physical mechanisms of microplastic infiltration</li>
+                    </ul>
+                </div>
+                
+                <div class="undergrad-card">
+                    <h3>Maddie Benedetti</h3>
+                     <ul>
+                        <li>Independent project (2025)</li>
+                        <li>Physical mechanisms of wave</li>
+                    </ul>
+                </div>
+
+                <div class="undergrad-card">
+                    <h3>Gus Stach</h3>
+                     <ul>
+                        <li>Undergrad assistant (2025)</li>
+                        <li>Fluid flow through rough fractures</li>
+                    </ul>
+                </div>
+                
             </div>
             
-            <div class="person-simple">
-                Seamus Chappell - Undergrad student
-                <ul>
-                    <li>Undergraduatae research (2025) </li>
-                    <li>Physical mechanisms of microplastic infiltration </li>
-                </ul>
-            
+            <!-- Past Postdocs & Graduate Students Section -->
+            <h2 class="section-title">Past Postdocs & Graduate Students</h2>
+            <div class="member-grid">
+                <!-- Add past members here using the "member-card" structure -->
+                <!-- Example:
+                <div class="member-card">
+                    <img src="images/past_member.jpg" alt="Past Member">
+                    <div class="member-details">
+                        <h2>Past Member Name</h2>
+                        <h3>Now at [Company/University]</h3>
+                        <ul>
+                            <li>PhD student (2020 - 2024)</li>
+                        </ul>
+                    </div>
+                </div>
+                -->
             </div>
-                <div class="person-simple">
-                Maddie Benedetti - Undergrad student
-                <ul>
-                    <li>Independent project (2025) </li>
-                    <li>Physical mechanisms of wave velocities below tree roots</li>
-                </ul>
-            </div>
-            
-            <div class="person-simple">
-                Gus Stach - Undergrad student
-                <ul>
-                    <li>Undergrad assistant (2025) </li>
-                    <li>Fluid flow through rough fractures</li>
-                </ul>
+
+            <!-- Past Undergraduate Students Section -->
+            <h2 class="section-title">Past Undergraduate Students</h2>
+            <div class="undergrad-grid">
+                <!-- Add past undergrads here using the "undergrad-card" structure -->
             </div>
             
         </main>
