@@ -61,12 +61,21 @@
             color: #666;
         }
         .publication-list {
-            list-style-position: outside;
-            padding-left: 25px; /* Standard indentation for ordered lists */
+            list-style: none; /* Hide default numbering */
+            padding-left: 0;
         }
         .publication-list li {
+            position: relative;
+            padding-left: 45px; /* Space for custom number */
             margin-bottom: 25px;
-            padding-left: 10px;
+        }
+        .publication-list li::before {
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-weight: bold;
+            width: 30px; /* Ensure alignment */
+            text-align: right;
         }
         .publication-list a {
             color: #555;
@@ -76,13 +85,22 @@
         .publication-list a:hover {
             text-decoration: underline;
         }
-        sup {
-            line-height: 0; /* Prevents daggers from affecting line spacing */
+
+        /* --- CSS Counters for Descending Order --- */
+        .peer-reviewed-pubs { counter-reset: pub-counter 17; }
+        .conf-proceedings { counter-reset: pub-counter 10; }
+        
+        .peer-reviewed-pubs li::before {
+            counter-increment: pub-counter -1;
+            content: counter(pub-counter) ".";
+        }
+        .conf-proceedings li::before {
+            counter-increment: pub-counter -1;
+            content: counter(pub-counter) ".";
         }
     </style>
 </head>
 <body>
-
     <div class="container">
         <header>
             <div class="logo">
@@ -101,40 +119,38 @@
             <h2 class="page-title">Peer-Reviewed Publications</h2>
             <p class="denotation-note">† denotes supervised student</p>
             
-            <!-- To add a new publication, add a new <li> item. Numbering is automatic. -->
-            <ol class="publication-list">
-                <li><b>M.Violay, M.J.Heap, C.Madonna, M.Acosta;</b><br>Porosity evolution at the brittle-ductile transition in the continental crust: Implications for deep hydro-geothermal circulation.<br><i>Nature Scientific Reports</i> - <a href="#">Link</a></li>
-                <li><b>M.Acosta, F.X.Passelègue, A.Schubnel, M.Violay;</b><br>Dynamic weakening during earthquakes controlled by fluid thermodynamics.<br><i>Nature Communications</i> - <a href="#">Link</a></li>
-                <li><b>M.Acosta, F.X.Passelègue, A.Schubnel, R.Madariaga, M.Violay;</b><br>Can precursory moment release scale with earthquake magnitude? A view from the laboratory.<br><i>Geophysical Research Letters</i> - <a href="#">Link</a></li>
-                <li><b>M.Acosta, M.Violay;</b><br>Mechanical and hydraulic transport properties of transverse-isotropic Gneiss deformed under deep reservoir stress and pressure conditions.<br><i>International Journal of Rock Mechanics and Mining Science</i> - <a href="#">Link</a></li>
-                <li><b>M.Acosta, † R.Maye, M.Violay;</b><br>Hydraulic transport through calcite bearing faults with customized roughness: Effects of Normal and Shear loading<br><i>Journal of Geophysical Research: Solid Earth</i> - <a href="#">Link</a></li>
-                <li><b>M.Acosta</b><br>Experimental studies of hydro-mechanical couplings in enhanced geothermal reservoirs.<br><i>Doctoral thesis dissertation</i> - <a href="#">Link</a></li>
-                <li><b>† F.Paglialunga, F.Passelègue, M.Acosta, M.Violay</b><br>Origin of the co-seismic variations of elastic properties in the crust: insight from the laboratory.<br><i>Geophysical Research Letters</i> - <a href="#">Link</a></li>
-                <li><b>K.Sirorattanakul, Z.E.Ross, M.Khoshmanesh, E.Cochran, M.Acosta, J-P.Avouac;</b><br>The 2020 Westmorland, California earthquake swarm as aftershocks of a slow slip event sustained by fluid flow.<br><i>Journal of Geophysical Research: Solid Earth</i> - <a href="#">Link</a></li>
-                <li><b>G.Meyer, M.Acosta, H.Leclère, L.Morier, M.Teuscher, G.Garrison, A.Schubnel, and M.Violay;</b><br>A new high-pressure high-temperature deformation apparatus to study the brittle-to-ductile transition in rocks<br><i>Rev. Sci. Instr.</i> - <a href="#">Link</a></li>
-                <li><b>† H.Kaveh, P.Batlle, M.Acosta, P. Kulkarni, J-P.Avouac;</b><br>Induced Seismicity forecasting with Uncertainty Quantification: Application to the Groningen Gas Field<br><i>Seismological Research Letters</i> - <a href="#">Link</a></li>
-                <li><b>M.Acosta, J-P.Avouac, J.D.Smith, † K.Sirorattanakul, † H.Kaveh, S.J. Bourne;</b><br>Earthquake nucleation characteristics revealed by seismicity response to seasonal stress variations induced by gas production at Groningen.<br><i>Geophysical Research Letters</i> - <a href="#">Link</a></li>
-                <li><b>K.Sirorattanakul, J.Wilding, M.Acosta, Y.Li, Z.Ross, S.Bourne, J-P.Avouac;</b><br>Bursts of fast propagating swarms of induced earthquakes at the Groningen gas field.<br><i>Seismological Research Letters</i></li>
-                <li><b>†Y.Tamama, M.Acosta, S.J.Bourne, J-P.Avouac;</b><br>Earthquake Growth Inhibited at Higher Coulomb Stress Change Rate at Groningen.<br><i>Geophysical Research Letters</i> - <a href="#">Link</a></li>
-                <li><b>Y.Li, M.Acosta, K.Sirorattanakul, S.J.Bourne, J-P.Avouac;</b><br>Geodetic monitoring of elastic and inelastic deformation in compacting reservoirs due to subsurface operations.<br><i>Journal of Geophysical Research: Solid Earth.</i></li>
-                <li><b>M.Acosta, †T.Ledevin, †G. Salha, †C. Forestier, †L.Michelin, J-P.Avouac, X.Fu;</b><br>Flow2Quake, an integrated multiphase flow, geomechanical and seismicity model for efficient forecasting of injection and extraction induced earthquakes.<br><i>International Journal for Greenhouse Gas Control.</i></li>
+            <ol class="publication-list peer-reviewed-pubs">
                 <li><b>T.Kim, D. Gutierrez-Oribio, I.Stefanou, M.Acosta, J-P.Avouac.</b><br>Single-well based control and optimization of hydraulic stimulation and induced seismicity: application to the Otaniemi geothermal project.<br><i>Geothermics.</i></li>
+                <li><b>M.Acosta, †T.Ledevin, †G. Salha, †C. Forestier, †L.Michelin, J-P.Avouac, X.Fu;</b><br>Flow2Quake, an integrated multiphase flow, geomechanical and seismicity model for efficient forecasting of injection and extraction induced earthquakes.<br><i>International Journal for Greenhouse Gas Control.</i></li>
+                <li><b>Y.Li, M.Acosta, K.Sirorattanakul, S.J.Bourne, J-P.Avouac;</b><br>Geodetic monitoring of elastic and inelastic deformation in compacting reservoirs due to subsurface operations.<br><i>Journal of Geophysical Research: Solid Earth.</i></li>
+                <li><b>†Y.Tamama, M.Acosta, S.J.Bourne, J-P.Avouac;</b><br>Earthquake Growth Inhibited at Higher Coulomb Stress Change Rate at Groningen.<br><i>Geophysical Research Letters</i> - <a href="#">Link</a></li>
+                <li><b>K.Sirorattanakul, J.Wilding, M.Acosta, Y.Li, Z.Ross, S.Bourne, J-P.Avouac;</b><br>Bursts of fast propagating swarms of induced earthquakes at the Groningen gas field.<br><i>Seismological Research Letters</i></li>
+                <li><b>M.Acosta, J-P.Avouac, J.D.Smith, † K.Sirorattanakul, † H.Kaveh, S.J. Bourne;</b><br>Earthquake nucleation characteristics revealed by seismicity response to seasonal stress variations induced by gas production at Groningen.<br><i>Geophysical Research Letters</i> - <a href="#">Link</a></li>
+                <li><b>† H.Kaveh, P.Batlle, M.Acosta, P. Kulkarni, J-P.Avouac;</b><br>Induced Seismicity forecasting with Uncertainty Quantification: Application to the Groningen Gas Field<br><i>Seismological Research Letters</i> - <a href="#">Link</a></li>
+                <li><b>G.Meyer, M.Acosta, H.Leclère, L.Morier, M.Teuscher, G.Garrison, A.Schubnel, and M.Violay;</b><br>A new high-pressure high-temperature deformation apparatus to study the brittle-to-ductile transition in rocks<br><i>Rev. Sci. Instr.</i> - <a href="#">Link</a></li>
+                <li><b>K.Sirorattanakul, Z.E.Ross, M.Khoshmanesh, E.Cochran, M.Acosta, J-P.Avouac;</b><br>The 2020 Westmorland, California earthquake swarm as aftershocks of a slow slip event sustained by fluid flow.<br><i>Journal of Geophysical Research: Solid Earth</i> - <a href="#">Link</a></li>
+                <li><b>† F.Paglialunga, F.Passelègue, M.Acosta, M.Violay</b><br>Origin of the co-seismic variations of elastic properties in the crust: insight from the laboratory.<br><i>Geophysical Research Letters</i> - <a href="#">Link</a></li>
+                <li><b>M.Acosta</b><br>Experimental studies of hydro-mechanical couplings in enhanced geothermal reservoirs.<br><i>Doctoral thesis dissertation</i> - <a href="#">Link</a></li>
+                <li><b>M.Acosta, † R.Maye, M.Violay;</b><br>Hydraulic transport through calcite bearing faults with customized roughness: Effects of Normal and Shear loading<br><i>Journal of Geophysical Research: Solid Earth</i> - <a href="#">Link</a></li>
+                <li><b>M.Acosta, M.Violay;</b><br>Mechanical and hydraulic transport properties of transverse-isotropic Gneiss deformed under deep reservoir stress and pressure conditions.<br><i>International Journal of Rock Mechanics and Mining Science</i> - <a href="#">Link</a></li>
+                <li><b>M.Acosta, F.X.Passelègue, A.Schubnel, R.Madariaga, M.Violay;</b><br>Can precursory moment release scale with earthquake magnitude? A view from the laboratory.<br><i>Geophysical Research Letters</i> - <a href="#">Link</a></li>
+                <li><b>M.Acosta, F.X.Passelègue, A.Schubnel, M.Violay;</b><br>Dynamic weakening during earthquakes controlled by fluid thermodynamics.<br><i>Nature Communications</i> - <a href="#">Link</a></li>
+                <li><b>M.Violay, M.J.Heap, C.Madonna, M.Acosta;</b><br>Porosity evolution at the brittle-ductile transition in the continental crust: Implications for deep hydro-geothermal circulation.<br><i>Nature Scientific Reports</i> - <a href="#">Link</a></li>
             </ol>
 
             <h2 class="page-title" style="margin-top: 60px;">Peer-Reviewed Conference Proceedings and Published Reports</h2>
-            <ol class="publication-list">
-                <li><b>M.Acosta, B.Gibert, M.Violay;</b><br>From Brittle to Ductile Deformation in the Continental Crust: Mechanics of Crystalline Reservoirs and Implications for Hydrothermal Circulation<br><i>Proceedings of the World Geothermal Congress 2021</i> - <a href="#">Link</a></li>
-                <li><b>M.Acosta, R.Maye, M.Violay;</b><br>Hydraulic transport through calcite bearing faults with customized roughness:Revisiting Hydro-shear stimulations<br><i>Proceedings of the Stanford Geothermal Workshop</i> - <a href="#">Link</a></li>
-                <li><b>M.Acosta;</b><br>Laboratory experiments to improve hydraulic stimulation techniques in deep geothermal reservoirs.<br><i>Transactions Geothermal Rising conference</i></li>
-                <li><b>C. Sarmiento, M.Acosta</b><br>Geothermal energy direct use for communities in Ecuador - Boosting scalability.<br><i>Proceedings Second EAGE Workshop on Geothermal Energy in Latin America</i> - <a href="#">Link</a></li>
-                <li><b>M.Acosta, †T.Ledevin, X.Fu, J-P. Avouac;</b><br>A physics-based, data-ready, modular workflow for sedimentary geothermal energy: turning hydrocarbon reservoirs into geothermal power.<br><i>Proceedings Second EAGE Workshop on Geothermal Energy in Latin America</i> - <a href="#">Link</a></li>
-                <li><b>M.Urquizo, M.Acosta, A.Lloret;</b><br>Ecuadorian Geothermal Association (AGE): Towards holistic development of geothermal energy in Ecuador.<br><i>Proc. World Geothermal Congress 2023</i> - <a href="#">Link</a></li>
-                <li><b>B.Beate, M.Urquizo, A.Lloret, M.Acosta, E.Angulo;</b><br>Ecuador Geothermal Country Update 2023<br><i>Proc. World Geothermal Congress 2023</i> - <a href="#">Link</a></li>
-                <li><b>M.Violay, M.Acosta, B.Lecampion;</b><br>Hydraulic stimulation of deep geothermal reservoirs: The role of modern rock mechanics at EPFL.<br><i>Geotechnik Schweiz: Forum on research and innovation in geotechnics.</i> <a href="#">Link</a></li>
+            <ol class="publication-list conf-proceedings">
                 <li><b>F.Lehner, T-F.Wong, A.Mossop, P.Schutjens, C.Spiers, M.Acosta and J-P.Avouac;</b><br>Discussion of the application of rate dependent compaction models to the Groningen gas field.<br><i>This report contains the discussion of the inelastic compaction modelling of depleting reservoirs. It contains reviews by several scientists.</i> - <a href="#">Link</a></li>
+                <li><b>M.Violay, M.Acosta, B.Lecampion;</b><br>Hydraulic stimulation of deep geothermal reservoirs: The role of modern rock mechanics at EPFL.<br><i>Geotechnik Schweiz: Forum on research and innovation in geotechnics.</i> <a href="#">Link</a></li>
+                <li><b>B.Beate, M.Urquizo, A.Lloret, M.Acosta, E.Angulo;</b><br>Ecuador Geothermal Country Update 2023<br><i>Proc. World Geothermal Congress 2023</i> - <a href="#">Link</a></li>
+                <li><b>M.Urquizo, M.Acosta, A.Lloret;</b><br>Ecuadorian Geothermal Association (AGE): Towards holistic development of geothermal energy in Ecuador.<br><i>Proc. World Geothermal Congress 2023</i> - <a href="#">Link</a></li>
+                <li><b>M.Acosta, †T.Ledevin, X.Fu, J-P. Avouac;</b><br>A physics-based, data-ready, modular workflow for sedimentary geothermal energy: turning hydrocarbon reservoirs into geothermal power.<br><i>Proceedings Second EAGE Workshop on Geothermal Energy in Latin America</i> - <a href="#">Link</a></li>
+                <li><b>C. Sarmiento, M.Acosta</b><br>Geothermal energy direct use for communities in Ecuador - Boosting scalability.<br><i>Proceedings Second EAGE Workshop on Geothermal Energy in Latin America</i> - <a href="#">Link</a></li>
+                <li><b>M.Acosta;</b><br>Laboratory experiments to improve hydraulic stimulation techniques in deep geothermal reservoirs.<br><i>Transactions Geothermal Rising conference</i></li>
+                <li><b>M.Acosta, R.Maye, M.Violay;</b><br>Hydraulic transport through calcite bearing faults with customized roughness:Revisiting Hydro-shear stimulations<br><i>Proceedings of the Stanford Geothermal Workshop</i> - <a href="#">Link</a></li>
+                <li><b>M.Acosta, B.Gibert, M.Violay;</b><br>From Brittle to Ductile Deformation in the Continental Crust: Mechanics of Crystalline Reservoirs and Implications for Hydrothermal Circulation<br><i>Proceedings of the World Geothermal Congress 2021</i> - <a href="#">Link</a></li>
             </ol>
         </main>
     </div>
-
 </body>
 </html>
