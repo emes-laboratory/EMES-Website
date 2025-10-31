@@ -54,17 +54,26 @@
             margin-bottom: 40px;
         }
         .communication-list {
-            list-style-position: outside;
-            padding-left: 25px;
+            list-style: none;
+            padding-left: 0;
         }
         .communication-list li {
+            position: relative;
+            padding-left: 45px;
             margin-bottom: 25px;
-            padding-left: 10px;
             border-bottom: 1px solid #eee;
             padding-bottom: 25px;
         }
         .communication-list li:last-child {
             border-bottom: none;
+        }
+        .communication-list li::before {
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-weight: bold;
+            width: 30px;
+            text-align: right;
         }
         .communication-list a {
             color: #555;
@@ -78,7 +87,23 @@
             display: flex;
             justify-content: space-between;
             color: #666;
+            margin-top: 5px;
         }
+        .presentation-type {
+            color: #333;
+            font-style: italic;
+        }
+        
+        /* --- CSS Counters for Descending Order --- */
+        .invited-talks { counter-reset: comm-counter 18; }
+        .conf-talks { counter-reset: comm-counter 19; }
+        .outreach-talks { counter-reset: comm-counter 6; }
+        
+        .communication-list li::before {
+            counter-increment: comm-counter -1;
+            content: counter(comm-counter) ".";
+        }
+
     </style>
 </head>
 <body>
@@ -99,41 +124,41 @@
 
         <main>
             <h2 class="page-title">Invited Presentations</h2>
-            <ol class="communication-list">
-                <li><b>Poroelasticity Minisymposium ROCKETH, 2017</b><br>Effect of pore fluid on dynamic earthquake rupture: Implications for Enhanced Geothermal Systems.<div class="presentation-details"><span></span><span>CH-03.2017</span></div></li>
-                <li><b>Caltech Seismological Laboratory</b><br>Fluid pressure drastically influences earthquake nucleation and propagation beyond the effective stress concept.<div class="presentation-details"><span></span><span>USA-10.2021</span></div></li>
-                <li><b>Center for Geomechanics and Mitigation of Geohazards (GMG) at Caltech IAB winter meeting</b><br>Coupling between deformation and fluid transport in fractures.<br><i>Keynote speaker</i><div class="presentation-details"><span></span><span>Virtual-02.2022</span></div></li>
-                <li><b>Center for Earthquake Research and Information (CERI) of the University of Memphis</b><br>Fluid pressure drastically influences earthquake nucleation and propagation beyond the effective stress concept.<div class="presentation-details"><span></span><span>Virtual-03.2022</span></div></li>
-                <li><b>Caltech Geoclub seminar</b><br>Hydraulic transport in deep geothermal reservoirs: laboratory experiments.<div class="presentation-details"><span></span><span>USA-10.2022</span></div></li>
-                <li><b>University of California Santa Cruz</b><br>From micro- to macro-scopic hydro-mechanical couplings in the lithosphere.<div class="presentation-details"><span></span><span>USA-03.2023</span></div></li>
-                <li><b>Caltech Knowles Symposium</b><br>Contact mechanics enlighten hydro-mechanical couplings in laboratory faults.<div class="presentation-details"><span></span><span>USA-05.2023</span></div></li>
-                <li><b>Center for Geomechanics and Mitigation of Geohazards (GMG) at Caltech - Deep Dive on CO2 capture.</b><br>An integrated workflow for subsurface operations: Fluid flow, Geomechanics, and Seismicity.<div class="presentation-details"><span></span><span>USA-05.2023</span></div></li>
-                <li><b>NVIDIA Carbon Capture and Storage</b><br>An integrated workflow for subsurface operations: Multiphase fluid flow, Geomechanics, and Seismicity.<div class="presentation-details"><span></span><span>USA-09.2023</span></div></li>
-                <li><b>Center for Geomechanics and Mitigation of Geohazards (GMG) at Caltech IAB Fall meeting</b><br>Enhanced extraction of surface deformation and implications for rock rheology.<div class="presentation-details"><span></span><span>USA-10.2023</span></div></li>
-                <li><b>Rice university</b><br>Multi-scale hydro-mechanical couplings for decarbonizing the energy matrix.<div class="presentation-details"><span></span><span>USA-02.2024</span></div></li>
-                <li><b>Virginia Tech</b><br>Multi-scale hydro-mechanical couplings for decarbonizing the energy matrix.<div class="presentation-details"><span></span><span>USA-03.2024</span></div></li>
-                <li><b>Concordia University Montreal</b><br>Multi-scale hydro-mechanical couplings for decarbonizing the energy matrix.<div class="presentation-details"><span></span><span>CA-03.2024</span></div></li>
-                <li><b>GeoRest workshop on induced seismicity</b><br>On the need to account for fault strength excess and time-dependent nucleation to model and forecast induced seismicity.<br><i>Keynote speaker</i><div class="presentation-details"><span></span><span>ES-03.2024</span></div></li>
-                <li><b>ARMA Future Leader Webinar series</b><br>Multi-scale hydro-mechanical couplings for decarbonizing the energy matrix.<br><i>Keynote speaker</i><div class="presentation-details"><span></span><span>USA-05.2024</span></div></li>
-                <li><b>AGU 2024 Session S034. Thermo-Hydro-Mechanical-Chemical Processes in Seismogenesis.</b><br>One-way coupled hydro-mechanical-seismic models for understanding and forecasting man-made seismicity.<div class="presentation-details"><span></span><span>USA-12.2024</span></div></li>
+            <ol class="communication-list invited-talks">
                 <li><b>AGU 2024 Session S018. Geologic carbon storage.</b><br>Efficient physics-based modelling of induced seismicity in the Decatur CCS project and upscaling to the Illinois basin.<div class="presentation-details"><span></span><span>USA-12.2024</span></div></li>
+                <li><b>AGU 2024 Session S034. Thermo-Hydro-Mechanical-Chemical Processes in Seismogenesis.</b><br>One-way coupled hydro-mechanical-seismic models for understanding and forecasting man-made seismicity.<div class="presentation-details"><span></span><span>USA-12.2024</span></div></li>
+                <li><b>ARMA Future Leader Webinar series</b><br>Multi-scale hydro-mechanical couplings for decarbonizing the energy matrix.<br><i>Keynote speaker</i><div class="presentation-details"><span></span><span>USA-05.2024</span></div></li>
+                <li><b>GeoRest workshop on induced seismicity</b><br>On the need to account for fault strength excess and time-dependent nucleation to model and forecast induced seismicity.<br><i>Keynote speaker</i><div class="presentation-details"><span></span><span>ES-03.2024</span></div></li>
+                <li><b>Concordia University Montreal</b><br>Multi-scale hydro-mechanical couplings for decarbonizing the energy matrix.<div class="presentation-details"><span></span><span>CA-03.2024</span></div></li>
+                <li><b>Virginia Tech</b><br>Multi-scale hydro-mechanical couplings for decarbonizing the energy matrix.<div class="presentation-details"><span></span><span>USA-03.2024</span></div></li>
+                <li><b>Rice university</b><br>Multi-scale hydro-mechanical couplings for decarbonizing the energy matrix.<div class="presentation-details"><span></span><span>USA-02.2024</span></div></li>
+                <li><b>Center for Geomechanics and Mitigation of Geohazards (GMG) at Caltech IAB Fall meeting</b><br>Enhanced extraction of surface deformation and implications for rock rheology.<div class="presentation-details"><span></span><span>USA-10.2023</span></div></li>
+                <li><b>NVIDIA Carbon Capture and Storage</b><br>An integrated workflow for subsurface operations: Multiphase fluid flow, Geomechanics, and Seismicity.<div class="presentation-details"><span></span><span>USA-09.2023</span></div></li>
+                <li><b>Center for Geomechanics and Mitigation of Geohazards (GMG) at Caltech - Deep Dive on CO2 capture.</b><br>An integrated workflow for subsurface operations: Fluid flow, Geomechanics, and Seismicity.<div class="presentation-details"><span></span><span>USA-05.2023</span></div></li>
+                <li><b>Caltech Knowles Symposium</b><br>Contact mechanics enlighten hydro-mechanical couplings in laboratory faults.<div class="presentation-details"><span></span><span>USA-05.2023</span></div></li>
+                <li><b>University of California Santa Cruz</b><br>From micro- to macro-scopic hydro-mechanical couplings in the lithosphere.<div class="presentation-details"><span></span><span>USA-03.2023</span></div></li>
+                <li><b>Center for Earthquake Research and Information (CERI) of the University of Memphis</b><br>Fluid pressure drastically influences earthquake nucleation and propagation beyond the effective stress concept.<div class="presentation-details"><span></span><span>Virtual-03.2022</span></div></li>
+                <li><b>Center for Geomechanics and Mitigation of Geohazards (GMG) at Caltech IAB winter meeting</b><br>Coupling between deformation and fluid transport in fractures.<br><i>Keynote speaker</i><div class="presentation-details"><span></span><span>Virtual-02.2022</span></div></li>
+                <li><b>Caltech Seismological Laboratory</b><br>Fluid pressure drastically influences earthquake nucleation and propagation beyond the effective stress concept.<div class="presentation-details"><span></span><span>USA-10.2021</span></div></li>
+                <li><b>Poroelasticity Minisymposium ROCKETH, 2017</b><br>Effect of pore fluid on dynamic earthquake rupture: Implications for Enhanced Geothermal Systems.<div class="presentation-details"><span></span><span>CH-03.2017</span></div></li>
+                <li><b>Invited Seminar at EPFL PhD Meeting</b><br>Understanding earthquakes in the laboratory<br><span class="presentation-type">Oral Presentation</span><div class="presentation-details"><span></span><span>CH-10.2018</span></div></li>
             </ol>
 
             <h2 class="page-title" style="margin-top: 60px;">Conference Presentations</h2>
-            <ol class="communication-list">
-                <!-- Add items here from CV -->
+            <ol class="communication-list conf-talks">
+                <li><b>American Geophysical Union annual meeting 2023</b><br>Earthquake nucleation characteristics revealed by the effect of long-and-short term stress variations on induced seismicity. <br><span class="presentation-type">Oral Presentation</span><div class="presentation-details"><span></span><span>USA-12.2023</span></div></li>
+                <!-- Add more conference presentations here, most recent first -->
             </ol>
 
             <h2 class="page-title" style="margin-top: 60px;">Outreach Activities</h2>
-            <ol class="communication-list">
-                <li><b>Invited Seminar at EPFL PhD Meeting</b><br>Understanding earthquakes in the laboratory<br><i>Oral Presentation</i><div class="presentation-details"><span></span><span>CH-10.2018</span></div></li>
-                <li><b>Doctoral school of mechanics, spring 2017</b><br>Effect of pore fluid on dynamic earthquake rupture: Implications for Enhanced Geothermal Systems<br><i>Invited oral presentation.</i><div class="presentation-details"><span></span><span>CH-03.2017</span></div></li>
-                <li><b>ENAC Research day, 2016</b><br>Hydro mechanical couplings in enhanced geothermal reservoirs<br><i>Oral Presentation</i><div class="presentation-details"><span></span><span>CH-05.2016</span></div></li>
-                <li><b>Radio Interview RTS, Émission CQFD</b><br>La présence d'eau dans les roches atténue la force des séismes induits<br><i>Outreach radio interview - <a href="#">Link</a></i><div class="presentation-details"><span></span><span>CH-08.2018</span></div></li>
+            <ol class="communication-list outreach-talks">
                 <li><b>Ecuadorian geothermal association (AGE):</b><br>Geotermia: Fundamentos, interés para el Ecuador y nuevas líneas.<br><i>Outreach video on geothermal information for Ecuador - <a href="#">Link</a></i><div class="presentation-details"><span></span><span>EC-10.2022</span></div></li>
+                <li><b>Radio Interview RTS, Émission CQFD</b><br>La présence d'eau dans les roches atténue la force des séismes induits<br><i>Outreach radio interview - <a href="#">Link</a></i><div class="presentation-details"><span></span><span>CH-08.2018</span></div></li>
+                <li><b>ENAC Research day, 2016</b><br>Hydro mechanical couplings in enhanced geothermal reservoirs<br><span class="presentation-type">Oral Presentation</span><div class="presentation-details"><span></span><span>CH-05.2016</span></div></li>
+                <li><b>Doctoral school of mechanics, spring 2017</b><br>Effect of pore fluid on dynamic earthquake rupture: Implications for Enhanced Geothermal Systems<br><i>Invited oral presentation.</i><div class="presentation-details"><span></span><span>CH-03.2017</span></div></li>
+                 <!-- The "Invited Seminar at EPFL PhD Meeting" was listed under Outreach in the CV, but feels more like an Invited Presentation. I moved it up. If you want it back here, just move the list item. -->
             </ol>
         </main>
     </div>
-
 </body>
 </html>
