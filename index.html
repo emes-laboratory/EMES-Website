@@ -55,18 +55,66 @@
             margin-bottom: 60px;
         }
         .home-hero img {
-            max-width: 700px;
-            margin: 20px 0;
+            max-width: 100%;
+            height: auto;
+            width: 700px;
         }
         .lab-description {
-            text-align: center;
+            /* Text is now left-aligned by default */
             font-size: 1.1em;
             max-width: 800px;
             margin: 0 auto;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #ddd;
         }
         .lab-description p {
-            margin-bottom: 2em;
+            margin-bottom: 1.5em;
         }
+
+        /* --- News Section --- */
+        .news-section {
+            max-width: 800px;
+            margin: 40px auto 0 auto; /* Add space above */
+        }
+        .section-title {
+            font-size: 1.5em;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        .news-list {
+            list-style: none;
+            padding: 0;
+        }
+        .news-item {
+            display: flex;
+            align-items: flex-start;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .news-item:last-child {
+            border-bottom: none; /* No border for the last item */
+        }
+        .news-date {
+            width: 140px;
+            flex-shrink: 0;
+            margin-right: 30px;
+            color: #555;
+            font-weight: 600;
+        }
+        .news-content p {
+            margin: 0;
+        }
+        .news-content a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .news-content a:hover {
+            text-decoration: underline;
+        }
+
     </style>
 </head>
 <body>
@@ -103,8 +151,49 @@
                     reservoirs.
                 </p>
             </div>
+            
+            <!-- =============================================================================== -->
+            <!-- NEWS SECTION - EASY TO UPDATE                                                     -->
+            <!-- =============================================================================== -->
+            <div class="news-section">
+                <h2 class="section-title">News</h2>
+                <ul class="news-list">
+                    
+                    <!-- TO ADD A NEW NEWS ITEM: Copy the entire 'news-item' block below -->
+                    <!-- and paste it right here, above the older news. Then edit the date and text. -->
+
+                    <li class="news-item">
+                        <div class="news-date">October 31, 2025</div>
+                        <div class="news-content">
+                            <p>
+                                Welcome to our new graduate student, Rahi Abrar, who will be working on geothermal reservoir optimization.
+                            </p>
+                        </div>
+                    </li>
+
+                    <li class="news-item">
+                        <div class="news-date">September 15, 2025</div>
+                        <div class="news-content">
+                            <p>
+                                Prof. Acosta's latest paper on induced seismicity has been published in <i>Geophysical Research Letters</i>. <a href="#">Read it here</a>.
+                            </p>
+                        </div>
+                    </li>
+                    
+                    <li class="news-item">
+                        <div class="news-date">August 01, 2025</div>
+                        <div class="news-content">
+                            <p>
+                                The EMES Lab website is now live!
+                            </p>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+
         </main>
     </div>
 
 </body>
-</html>
+</html>```
